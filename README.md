@@ -30,3 +30,7 @@ Here is the demo :
 
 https://github.com/kapilpalewar/Family-Manager/assets/103321387/28e9e3e9-9e3a-4067-9113-a584b87d2f03
 
+# Summery 
+By using this plugin managing the Family get easier . User can have new one or old one Famlily By just one click.
+Improves the productivity. 
+Helps in Versioning the Family.
