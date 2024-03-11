@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE24876E-88DF-4887-9BAC-362FFF4FCADB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>myFirstPlugin</RootNamespace>
+    <AssemblyName>myFirstPlugin</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\myFirstPlugin.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.6.3\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RestSharp, Version=106.6.9.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.9\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPI">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="smartsheet-csharp-sdk, Version=2.126.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\smartsheet-csharp-sdk.2.126.0\lib\net452\smartsheet-csharp-sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="Family_Paths.cs" />
+    <Compile Include="Import Family.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import Family.Designer.cs">
+      <DependentUpon>Import Family.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportFamilies.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendRequestCommand.cs" />
+    <Compile Include="Send_Request.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Send_Request.Designer.cs">
+      <DependentUpon>Send_Request.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowRequest.Designer.cs">
+      <DependentUpon>ShowRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowRequestCommand.cs" />
+    <Compile Include="SmartsheetConnection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="myFirstplugin.addin" />
+    <None Include="NLog.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons\logo.png" />
+    <Content Include="Resources\Base-4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Import Family.resx">
+      <DependentUpon>Import Family.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Send_Request.resx">
+      <DependentUpon>Send_Request.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowRequest.resx">
+      <DependentUpon>ShowRequest.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetDir)myFirstPlugin.dll" "$(AppData)\Autodesk\Revit\Addins\2022"
+ 
+ 
+if exist "$(AppData)\Autodesk\REVIT\Addins\2022" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2022"
+
+if exist "$(AppData)\Autodesk\REVIT\Addins\2022\Resources" copy "$(ProjectDir)\Resources\Base-4.ico" "$(AppData)\Autodesk\REVIT\Addins\2022\Resources"</PostBuildEvent>
+  </PropertyGroup>
+</Project>
